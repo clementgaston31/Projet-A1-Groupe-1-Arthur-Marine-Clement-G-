@@ -1,0 +1,152 @@
+!
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname Routeur_Expo
+!
+!
+!
+enable secret 5 $1$mERr$PbTu2ba5wVbfod4ygqb7K0
+!
+!
+!
+ip dhcp pool LOL
+ network 192.168.0.0 255.255.255.0
+ default-router 192.168.0.1
+ dns-server 1.1.1.2
+ip dhcp pool CSGO
+ network 192.168.3.0 255.255.255.128
+ default-router 192.168.3.1
+ dns-server 1.1.1.2
+ip dhcp pool HS
+ network 192.168.3.128 255.255.255.192
+ default-router 192.168.3.129
+ dns-server 1.1.1.2
+ip dhcp pool PUBG
+ network 192.168.3.192 255.255.255.192
+ default-router 192.168.3.193
+ dns-server 1.1.1.2
+ip dhcp pool RL
+ network 192.168.4.0 255.255.255.192
+ default-router 192.168.4.1
+ dns-server 1.1.1.2
+ip dhcp pool WIFIHS
+ network 192.168.4.64 255.255.255.192
+ default-router 192.168.4.65
+ip dhcp pool SCENE
+ network 192.168.4.128 255.255.255.240
+ default-router 192.168.4.129
+ dns-server 1.1.1.2
+ip dhcp pool REGIS
+ network 192.168.4.156 255.255.255.252
+ default-router 192.168.4.157
+ dns-server 1.1.1.2
+ip dhcp pool WIFIJOUEUR
+ network 192.168.1.0 255.255.255.0
+ default-router 192.168.1.1
+ip dhcp pool WIFIJOUEUR2
+ network 192.168.2.0 255.255.255.0
+ default-router 192.168.2.1
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+ip name-server 1.1.1.2
+!
+!
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ ip address 1.1.1.1 255.0.0.0
+!
+interface GigabitEthernet1/0
+ ip address 192.168.0.1 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet2/0
+ ip address 192.168.4.149 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet3/0
+ ip address 192.168.4.153 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet4/0
+ ip address 192.168.3.1 255.255.255.128
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet5/0
+ ip address 192.168.3.129 255.255.255.192
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet6/0
+ ip address 192.168.3.193 255.255.255.192
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet7/0
+ ip address 192.168.4.1 255.255.255.192
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet8/0
+ ip address 192.168.4.145 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet9/0
+ ip address 192.168.4.157 255.255.255.252
+ duplex auto
+ speed auto
+!
+router rip
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+banner motd Attention, toutes tentatives d'intrusion sera passible d'une poursuite judiciaire.
+!
+!
+!
+!
+!
+line con 0
+ password 7 0833435B1D1C10052D08030A3924282D
+ login
+!
+line aux 0
+!
+line vty 0 4
+ login
+line vty 5 15
+ login
+!
+!
+!
+end
+
